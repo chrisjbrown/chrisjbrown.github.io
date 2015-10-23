@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<!-- saved from url=(0057)http://gridster.net/demos/adding-widgets-dynamically.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Demo » Add widgets dynamically » gridster.js</title>
+    <title>Add your favorite items</title>
     <link rel="stylesheet" type="text/css" href="assets/jquery.gridster.css">
     <link rel="stylesheet" type="text/css" href="assets/demo.css">
-    </head>
+</head>
 
 <body>
 
-<h1>Add widgets dynamically</h1>
-<p>Create a grid adding widgets from an Array (not from HTML) using <code>add_widget</code> method. Widget position (col, row) not specified.</p>
+<h1>Add your favorite items to the list</h1>
 
 <div class="gridster ready">
     <ul style="width: 1320px; position: relative; height: 325px;"></ul>
@@ -24,22 +22,62 @@
     $(function(){
 
         gridster = $(".gridster > ul").gridster({
-            widget_margins: [5, 5],
-            widget_base_dimensions: [100, 55]
+            widget_margins: [2, 2],
+            widget_base_dimensions: [100, 50]
         }).data('gridster');
 
         var widgets = [
-            ['<li><img src="images/schoenen.png"/></li>', 5, 7],
-            ['<li><img src="images/Shirt.png"/></li>', 4, 9],
+            ['<li><img src="images/schoenen.png"/></li>', 4, 8],
+            ['<li><img src="images/Shirt.png"/></li>', 4, 10],
             ['<li><img src="images/SunGlasses.png"/></li>', 4, 3]
         ];
 
         $.each(widgets, function(i, widget){
-            gridster.add_widget.apply(gridster, widget)
+            gridster.add_widget.apply(gridster, widget);
+        });
+
+        $('body').on( "click", ".gridster ul > li .remove", function() {
+            gridster.remove_widget($(this).closest('li'));
+        });
+
+        $('body').on( "click", ".gridster ul > li .add", function() {
+            gridster.add_widget($(this).closest('li'));
         });
 
     });
 </script>
-
+<br>
+<br>
+<h1>Shoes</h1>
+<div class="gridster shoes">
+    <ul style="width: 1320px; position: relative; height: 325px;">
+        <li data-col="1" data-row="1" data-sizex="4" data-sizey="8" class="gs-w" style="display: list-item;">
+            <span class="add">+</span>
+            <img src="images/schoenen.png">
+        </li>
+    </ul>
+</div>
+<br>
+<br>
+<h1>Clothes</h1>
+<div class="gridster clothes">
+    <ul style="width: 1320px; position: relative; height: 325px;">
+        <li data-col="1" data-row="1" data-sizex="4" data-sizey="10" class="gs-w" style="display: list-item;">
+            <span class="add">+</span>
+            <img src="images/Shirt.png">
+        </li>
+    </ul>
+</div>
+<br>
+<br>
+<h1>Accessories</h1>
+<div class="gridster accessories">
+    <ul style="width: 1320px; position: relative; height: 325px;">
+        <li data-col="1" data-row="1" data-sizex="4" data-sizey="3" class="gs-w" style="display: list-item;">
+            <span class="add">+</span>
+            <img src="images/SunGlasses.png">
+        </li>
+    </ul>
+</div>
 
 </body></html>
