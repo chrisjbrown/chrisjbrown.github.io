@@ -1,0 +1,58 @@
+.header {
+    width: 100%;
+}
+body {
+    margin: 0 auto;
+}
+h1 {
+    text-align: center;
+    margin: 10px auto;
+}
+.gridster {
+    margin: 50px auto;
+}
+.gridster ul {
+    margin: 0 auto;
+    background-image: url('images/backgrounds/wood02.jpg');
+}
+.gridster ul li {
+    background-color: transparent;
+}
+.gridster ul li .add {
+    cursor: pointer;
+    color: #000;
+}
+.gridster ul li a {
+    display: block;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: auto;
+    background-position: center;
+}
+.accessory {
+    width: 300px;
+    height: 300px;
+}
+
+.accessory a {
+    height: 150px;
+    display: block;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.choice li{
+    display: inline-block;
+    float:left;
+}
+li .remove {
+    color: white;
+}
+<<<<<<< HEAD
+=======
+
+body {
+    margin: 0;
+}
+>>>>>>> d06a0276b3398c8da3eef54ae3a88ef1a83f7e2d
