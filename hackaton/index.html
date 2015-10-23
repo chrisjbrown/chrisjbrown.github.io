@@ -15,11 +15,27 @@
     <ul style="width: 1320px; position: relative; height: 325px;"></ul>
 </div>
 
+<div class="choice" style="display:none;">
+    <ul style="width: 1320px; position: relative; height: 325px;">
+    </ul>
+</div>
+
 <script type="text/javascript" src="assets/jquery.js"></script>
 <script src="assets/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
 
 <script type="text/javascript" id="code">
     var gridster;
+    var gridsterChoice;
+
+    var widgets = [
+        ['<li class="shoe"><span class="remove">×</span><a style="background-image:url(images/schoenen.png)"/></li>', 2, 2],
+        ['<li class="shirt"><span class="remove">×</span><a style="background-image:url(images/Shirt.png)"/></li>', 2, 3],
+        // ['<li class="shirt"><span class="remove">×</span><a style="background-image:url(images/Shirt2.png)"/></li>', 2, 3],
+        // ['<li class="coat"><span class="remove">×</span><a style="background-image:url(images/coat.png)"/></li>', 3, 4],
+        ['<li class="pants"><span class="remove">×</span><a style="background-image:url(images/pants.png)"/></li>', 3, 5],
+        ['<li class="accessory"><span class="remove">×</span><a style="background-image:url(images/SunGlasses.png)"/></li>', 1, 1],
+        ['<li class="accessory"><span class="remove">×</span><a style="background-image:url(images/hat.png)"/></li>', 1, 1]
+    ];
 
     $(function(){
 
@@ -28,26 +44,24 @@
             widget_base_dimensions: [100, 100]
         }).data('gridster');
 
-        var widgets = [
-            ['<li class="shoe"><a style="background-image:url(images/schoenen.png)"/></li>', 2, 2],
-            ['<li class="shirt"><a style="background-image:url(images/Shirt.png)"/></li>', 2, 3],
-            // ['<li class="shirt"><a style="background-image:url(images/Shirt2.png)"/></li>', 2, 3],
-            // ['<li class="coat"><a style="background-image:url(images/coat.png)"/></li>', 3, 4],
-            ['<li class="pants"><a style="background-image:url(images/jeans.png)"/></li>', 2, 3],
-            ['<li class="accessory"><a style="background-image:url(images/SunGlasses.png)"/></li>', 1, 1],
-            ['<li class="accessory"><a style="background-image:url(images/hat.png)"/></li>', 1, 1]
-        ];
+        gridsterChoice  = $(".choice > ul").gridster({
+            widget_margins: [2, 2],
+            widget_base_dimensions: [100, 100]
+        }).data('gridster');
 
         $.each(widgets, function(i, widget){
             gridster.add_widget.apply(gridster, widget);
         });
 
         $('body').on( "click", ".gridster ul > li .remove", function() {
-            gridster.remove_widget($(this).closest('li'));
-        });
-
-        $('body').on( "click", ".gridster ul > li .add", function() {
-            gridster.add_widget($(this).closest('li'));
+            var li = $(this).closest('li');
+            gridster.remove_widget(li);
+            $('.gridster').hide();
+            $('.choice').show();
+            gridsterChoice.add_widget.apply(gridsterChoice, li);
+            //li.on( "click", function() {
+            //    gridster.add_widget($(this).closest('li'));
+            //});
         });
 
     });
