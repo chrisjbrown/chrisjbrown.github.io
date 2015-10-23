@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)http://gridster.net/demos/adding-widgets-dynamically.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Demo » Add widgets dynamically » gridster.js</title>
+    <link rel="stylesheet" type="text/css" href="assets/jquery.gridster.css">
+    <link rel="stylesheet" type="text/css" href="assets/demo.css">
+    </head>
+
+<body>
+
+<h1>Add widgets dynamically</h1>
+<p>Create a grid adding widgets from an Array (not from HTML) using <code>add_widget</code> method. Widget position (col, row) not specified.</p>
+
+<div class="gridster ready">
+    <ul style="width: 1320px; position: relative; height: 325px;"></ul>
+</div>
+
+<script type="text/javascript" src="assets/jquery.js"></script>
+<script src="assets/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript" id="code">
+    var gridster;
+
+    $(function(){
+
+        gridster = $(".gridster > ul").gridster({
+            widget_margins: [5, 5],
+            widget_base_dimensions: [100, 55]
+        }).data('gridster');
+
+        var widgets = [
+            ['<li><img src="images/schoenen.png"/></li>', 5, 7],
+            ['<li><img src="images/Shirt.png"/></li>', 4, 9],
+            ['<li><img src="images/SunGlasses.png"/></li>', 4, 3]
+        ];
+
+        $.each(widgets, function(i, widget){
+            gridster.add_widget.apply(gridster, widget)
+        });
+
+    });
+</script>
+
+
+</body></html>
