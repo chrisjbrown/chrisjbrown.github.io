@@ -1,9 +1,16 @@
 .header {
     width: 100%;
 }
-
+h1 {
+    text-align: center;
+    margin: 10px auto;
+}
+.gridster {
+    margin: 50px auto;
+}
 .gridster ul {
-    background-image: url('images/backgrounds/wood03.jpg');
+    margin: 0 auto;
+    background-image: url('images/backgrounds/wood02.jpg');
 }
 .gridster ul li {
     background-color: transparent;
