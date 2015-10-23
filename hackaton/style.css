@@ -1,6 +1,9 @@
 .header {
     width: 100%;
 }
+body {
+    margin: 0 auto;
+}
 h1 {
     text-align: center;
     margin: 10px auto;
@@ -14,6 +17,10 @@ h1 {
 }
 .gridster ul li {
     background-color: transparent;
+}
+.gridster ul li .add {
+    cursor: pointer;
+    color: #000;
 }
 .gridster ul li a {
     display: block;
@@ -35,7 +42,10 @@ h1 {
     background-repeat: no-repeat;
     background-size: contain;
 }
-
+.choice li{
+    display: inline-block;
+    float:left;
+}
 li .remove {
     color: white;
 }

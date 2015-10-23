@@ -15,7 +15,7 @@
     <ul style="width: 1320px; position: relative; height: 325px;"></ul>
 </div>
 
-<div class="choice" style="display:none;">
+<div class="choice">
     <ul style="width: 1320px; position: relative; height: 325px;">
     </ul>
 </div>
@@ -32,7 +32,7 @@
         ['<li class="shirt"><span class="remove">×</span><a style="background-image:url(images/Shirt.png)"/></li>', 2, 3],
         // ['<li class="shirt"><span class="remove">×</span><a style="background-image:url(images/Shirt2.png)"/></li>', 2, 3],
         // ['<li class="coat"><span class="remove">×</span><a style="background-image:url(images/coat.png)"/></li>', 3, 4],
-        ['<li class="pants"><span class="remove">×</span><a style="background-image:url(images/pants.png)"/></li>', 3, 5],
+        ['<li class="pants"><span class="remove">×</span><a style="background-image:url(images/jeans.png)"/></li>', 2, 3],
         ['<li class="accessory"><span class="remove">×</span><a style="background-image:url(images/SunGlasses.png)"/></li>', 1, 1],
         ['<li class="accessory"><span class="remove">×</span><a style="background-image:url(images/hat.png)"/></li>', 1, 1]
     ];
@@ -44,10 +44,7 @@
             widget_base_dimensions: [100, 100]
         }).data('gridster');
 
-        gridsterChoice  = $(".choice > ul").gridster({
-            widget_margins: [2, 2],
-            widget_base_dimensions: [100, 100]
-        }).data('gridster');
+        gridsterChoice  = $(".choice > ul");
 
         $.each(widgets, function(i, widget){
             gridster.add_widget.apply(gridster, widget);
@@ -55,10 +52,24 @@
 
         $('body').on( "click", ".gridster ul > li .remove", function() {
             var li = $(this).closest('li');
+            var liClone = li.clone();
+
+            $('.choice > ul').append(liClone.prepend('<span class="add">+</span>'));
+
+            liClone.find('.add').click( function() {
+                var li = $(this).closest('li');
+
+                li.find('.add').remove();
+
+                gridster.add_widget.apply(gridster, li);
+
+                $('.choice > ul').remove(li);
+            });
+
+
             gridster.remove_widget(li);
-            $('.gridster').hide();
-            $('.choice').show();
-            gridsterChoice.add_widget.apply(gridsterChoice, li);
+            // $('.gridster').hide();
+            // gridsterChoice.add_widget.apply(gridsterChoice, li);
             //li.on( "click", function() {
             //    gridster.add_widget($(this).closest('li'));
             //});
