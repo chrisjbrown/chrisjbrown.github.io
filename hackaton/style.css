@@ -1,3 +1,7 @@
+.header {
+    width: 100%;
+}
+
 .gridster ul {
     background-image: url('images/backgrounds/wood03.jpg');
 }
