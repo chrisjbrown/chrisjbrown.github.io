@@ -1,4 +1,10 @@
-.gridster ul li a{
+.gridster ul {
+    background-image: url('images/backgrounds/wood03.jpg');
+}
+.gridster ul li {
+    background-color: transparent;
+}
+.gridster ul li a {
     display: block;
     height: 100%;
     background-repeat: no-repeat;
@@ -6,8 +12,6 @@
     margin: auto;
     background-position: center;
 }
-
-
 .accessory {
     width: 300px;
     height: 300px;

@@ -53,12 +53,11 @@ body {
 }
 
 .gridster .gs-w {
-    background: #FFF;
     cursor: pointer;
 }
 
 .gridster .player {
-    background: #BBB;
+    background: transparent;
 }
 
 
@@ -66,4 +65,3 @@ body {
     border: none!important;
     background: red!important;
 }
-
