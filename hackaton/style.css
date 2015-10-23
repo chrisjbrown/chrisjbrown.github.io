@@ -28,3 +28,7 @@
     background-repeat: no-repeat;
     background-size: contain;
 }
+
+li .remove {
+    color: white;
+}
